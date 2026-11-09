@@ -1,8 +1,9 @@
-import { useRef, useEffect, useLayoutEffect } from 'react'
-import { useFrame } from '@react-three/fiber'
+import { useRef, useEffect, useLayoutEffect, useState } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
+import { Box3 } from 'three'
 
 gsap.registerPlugin(useGSAP)
 
@@ -25,6 +26,8 @@ export default function Model() {
   const mouse = useRef({ x: 0, y: 0 })
   const autoRotationY = useRef(0)
   const quick = useRef({ x: null, y: null })
+  const { size } = useThree()
+  const responsiveScale = Math.min(1, Math.max(0.45, size.width / 1100))
 
   const { scene, animations } = useGLTF('/models/scene.gltf')
   const { actions } = useAnimations(animations, group)
@@ -75,9 +78,16 @@ export default function Model() {
     quick.current.y?.(INITIAL_ROTATION[1] + mouse.current.x + autoRotationY.current)
     quick.current.x?.(INITIAL_ROTATION[0] + mouse.current.y)
   })
-
+const isMobile = size.width < 640
+const modelX = isMobile ? 2 * responsiveScale : 4.3 * responsiveScale
+const modelY = isMobile ? -3 * responsiveScale : -0.4 * responsiveScale 
   return (
-    <group ref={group} rotation={INITIAL_ROTATION}>
+    <group
+      ref={group}
+      position={[modelX, modelY, 0]}
+      scale={responsiveScale}
+      rotation={INITIAL_ROTATION}
+    >
       <primitive object={scene} />
     </group>
   )

@@ -92,31 +92,30 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="hero"
-      className="relative  w-full px-6 pb-16 md:pt-26 md:pb-20"
+      className="relative w-full px-6 md:pt-26 md:pb-20"
       aria-labelledby="hero-title"
-    >        
+    >
       {/* 3D Canvas Section */}
       <div className="absolute h-[80vh] md:h-[90vh] inset-0 z-0">
         <Canvas
           camera={{ fov: 25, near: 0.1, far: 100, position: [0, 0, 21] }}
           dpr={[1, 2]}
           gl={{ alpha: true, antialias: true }}
-          className="absolute inset-0 !h-full !w-full"
+          className="absolute inset-0 h-full! w-full!"
         >
           <Suspense fallback={null}>
             <Scene />
           </Suspense>
         </Canvas>
-        <div className="absolute inset-0 z-10 bg-linear-to-t from-black via-black/15 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 z-10 bg-linear-to-t from-transparent via-black/15 to-transparent pointer-events-none" />
       </div>
       {/* Content */}
-      <div className=" z-20 w-full flex flex-col px-6 pt-28 pb-16 md:pt-3 md:pb-0 overflow-hidden">
+      <div className="z-20 w-full flex flex-col px-6 pt-28 pb-16 md:pt-3 md:pb-0 overflow-hidden">
         {/* Title */}
-
         <h1
           id="hero-title"
-          className="font-bold tracking-tight text-white"
-          style={{ fontSize: 'clamp(3.8rem, 9vw, 8rem)', lineHeight: 0.98 }}
+          className="font-['Space_Grotesk'] font-semibold tracking-tight text-white"
+          style={{ fontSize: 'clamp(3.6rem, 9vw, 8rem)', lineHeight: 0.98  }}
         >
           <span
             ref={(el) => { if (el) titleLinesRef.current[0] = el; }}
@@ -126,21 +125,18 @@ export default function Hero() {
           </span>
           <span
             ref={(el) => { if (el) titleLinesRef.current[1] = el; }}
-            className="block text-transparent bg-clip-text bg-linear-to-r from-white via-white/80 to-white/60"
+            className="block text-transparent py-1 bg-clip-text bg-linear-to-r from-blue-300 via-white to-white/60"
           >
             {siteConfig.hero.title.line2}
           </span>
           <span
             ref={(el) => { if (el) titleLinesRef.current[2] = el; }}
-            className="block"
+            className="block "
           >
             {siteConfig.hero.title.line3}
           </span>
         </h1>
-
-
         {/* Subtitle */}
-
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
           <p
             ref={subtitleRef}
@@ -171,8 +167,6 @@ export default function Hero() {
           </div>
 
         </div>
-
-
         {/* CTAs */}
         <div
           className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-4"
@@ -204,9 +198,6 @@ export default function Hero() {
 
 
         </div>
-
-
-
       </div>
     </section>
   );

@@ -20,7 +20,7 @@ export const siteConfig = {
   // Hero/Landing Section
   hero: {
     title: {
-      line1: 'ideas into',
+      line1: 'glow into',
       line2: 'digital',
       line3: 'reality.',
     },
@@ -103,7 +103,7 @@ export const siteConfig = {
 
   // Footer
   footer: {
-    copyright: '© 2024 FlowARE. Crafted with intention.',
+    copyright: '© 2026 FlowARE. Crafted with intention.',
     links: [
       { label: 'Privacy', href: '#' },
       { label: 'Terms', href: '#' },

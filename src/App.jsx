@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import Navbar from './components/Navbar'
 import ParticleBackground from './components/ParticleBackground'
 import Hero from './components/Hero'
+import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -30,13 +31,10 @@ export default function App() {
 
       {/* Main Content */}
       <main className="relative z-10">
-
-        <section id="about" className="relative">
-          {/* Hero Section */}
-          <Hero className="absolute" />
-
-        </section>
-
+        {/* Hero Section */}
+        <Hero className="" />
+        {/* About Section */}
+        <About />
         {/* Contact Section */}
         <Contact />
       </main>

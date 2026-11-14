@@ -85,12 +85,12 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative py-12 md:py-12 px-6 bg-linear-to-b from-black to-zinc-950"
+      className="relative pb-16 px-6 bg-linear-to-t from-black via-zinc-950 to-transparent"
       aria-labelledby="contact-title"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-12 md:mb-12">
           <h2
             ref={titleRef}
             id="contact-title"

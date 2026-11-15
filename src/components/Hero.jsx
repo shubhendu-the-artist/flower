@@ -112,6 +112,7 @@ export default function Hero() {
       {/* Content */}
       <div className="z-20 w-full flex flex-col px-6 pt-28 pb-16 md:pt-3 md:pb-0 overflow-hidden">
         {/* Title */}
+        <p className="text-[#BAFDDB] before:content-['✳'] before:mr-2 font-extralight text-sm font-mono"> CREATIVE DEVELOPER / DIGITAL DESIGNER</p>
         <h1
           id="hero-title"
           className="font-['Space_Grotesk'] font-semibold tracking-tight text-white"
@@ -125,7 +126,7 @@ export default function Hero() {
           </span>
           <span
             ref={(el) => { if (el) titleLinesRef.current[1] = el; }}
-            className="block text-transparent py-1 bg-clip-text bg-linear-to-r from-blue-300 via-white to-white/60"
+            className="block text-transparent py-1 bg-clip-text bg-linear-to-r from-[#ad91ff] via-white to-white/60"
           >
             {siteConfig.hero.title.line2}
           </span>
@@ -133,7 +134,7 @@ export default function Hero() {
             ref={(el) => { if (el) titleLinesRef.current[2] = el; }}
             className="block "
           >
-            {siteConfig.hero.title.line3}
+            {siteConfig.hero.title.line3}<span className="text-[#ad91ff]">.</span>
           </span>
         </h1>
         {/* Subtitle */}
@@ -169,7 +170,7 @@ export default function Hero() {
         </div>
         {/* CTAs */}
         <div
-          className="mt-20 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-12 py-1 flex flex-col sm:flex-row items-center justify-center gap-4"
           role="group"
           aria-label="Primary actions"
         >

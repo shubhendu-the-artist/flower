@@ -22,7 +22,7 @@ export const siteConfig = {
     title: {
       line1: 'glow into',
       line2: 'digital',
-      line3: 'reality.',
+      line3: 'reality',
     },
     subtitle: 'Build expressive digital experiences where design, technology, and a little bit of magic meet.',
     cta: {

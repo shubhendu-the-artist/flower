@@ -85,7 +85,7 @@ export default function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative pb-16 px-6 bg-linear-to-t from-black via-zinc-950 to-transparent"
+      className="relative py-16 px-6 bg-linear-to-t from-black via-zinc-950 to-transparent"
       aria-labelledby="contact-title"
     >
       <div className="max-w-7xl mx-auto">

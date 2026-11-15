@@ -7,7 +7,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-
+import Projects from './components/Projects'
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger)
@@ -33,8 +33,10 @@ export default function App() {
       <main className="relative z-10">
         {/* Hero Section */}
         <Hero className="" />
+        {/* Projects Section */}  
+        <Projects/>
         {/* About Section */}
-        <About />
+        <About/>
         {/* Contact Section */}
         <Contact />
       </main>

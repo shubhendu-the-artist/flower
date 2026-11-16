@@ -5,21 +5,50 @@ import { siteConfig } from '../data/siteConfig';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const lastScrollY = useRef(0);
   const navRef = useRef(null);
   const logoRef = useRef(null);
   const linksRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const hamburgerRef = useRef(null);
 
-  // Scroll effect
+  // Scroll effect with direction detection
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+
+      // Scrolled styling threshold
+      setIsScrolled(currentScrollY > 50);
+
+      // Keep navbar visible if mobile menu is open
+      if (isMobileMenuOpen) {
+        setIsVisible(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      // Hide on scroll down, show on scroll up
+      if (currentScrollY > 70) {
+        if (currentScrollY > lastScrollY.current + 6) {
+          // Scrolling down
+          setIsVisible(false);
+        } else if (currentScrollY < lastScrollY.current - 6) {
+          // Scrolling up
+          setIsVisible(true);
+        }
+      } else {
+        // At or near the top
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
 
   // GSAP animations
   useGSAP(() => {
@@ -84,11 +113,11 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+        } ${isScrolled || isMobileMenuOpen
           ? 'bg-black/80 backdrop-blur-md border-b border-white/10'
           : 'bg-transparent'
-      }`}
+        }`}
       role="navigation"
       aria-label="Main navigation"
     >
@@ -98,14 +127,38 @@ export default function Navbar() {
           <a
             ref={logoRef}
             href="#"
-            className="text-2xl font-bold tracking-tight text-white hover:opacity-80 transition-opacity"
+            className="group font-mono flex items-center gap-3 text-2xl md:text-3xl tracking-tight text-white hover:opacity-90 transition-opacity"
             aria-label={`${siteConfig.brand.name} - Home`}
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            {siteConfig.brand.name}
+            <span className="relative flex items-center justify-center transition-transform duration-700 ease-out group-hover:rotate-180 group-hover:scale-110">
+              <svg
+                className="w-7 h-7 md:w-8 md:h-8 text-white group-hover:text-[#BAFDDB] transition-colors duration-300"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="2.5" fill="currentColor" fillOpacity="0.4" />
+                <path d="M12 3a2.5 2.5 0 0 0-2.5 2.5c0 1.5 2.5 4 2.5 4s2.5-2.5 2.5-4A2.5 2.5 0 0 0 12 3z" />
+                <path d="M12 21a2.5 2.5 0 0 0 2.5-2.5c0-1.5-2.5-4-2.5-4s-2.5 2.5-2.5 4A2.5 2.5 0 0 0 12 21z" />
+                <path d="M3 12a2.5 2.5 0 0 0 2.5 2.5c1.5 0 4-2.5 4-2.5s-2.5-2.5-4-2.5A2.5 2.5 0 0 0 3 12z" />
+                <path d="M21 12a2.5 2.5 0 0 0-2.5-2.5c-1.5 0-4 2.5-4 2.5s2.5 2.5 4 2.5A2.5 2.5 0 0 0 21 12z" />
+                <path d="M5.64 5.64a2.5 2.5 0 0 0 0 3.54c1.06 1.06 4.24 1.41 4.24 1.41s-.35-3.18-1.41-4.24a2.5 2.5 0 0 0-3.54 0z" />
+                <path d="M18.36 18.36a2.5 2.5 0 0 0 0-3.54c-1.06-1.06-4.24-1.41-4.24-1.41s.35 3.18 1.41 4.24a2.5 2.5 0 0 0 3.54 0z" />
+                <path d="M5.64 18.36a2.5 2.5 0 0 0 3.54 0c1.06-1.06 1.41-4.24 1.41-4.24s-3.18.35-4.24 1.41a2.5 2.5 0 0 0 0 3.54z" />
+                <path d="M18.36 5.64a2.5 2.5 0 0 0-3.54 0c-1.06 1.06-1.41 4.24-1.41 4.24s3.18-.35 4.24-1.41a2.5 2.5 0 0 0 0-3.54z" />
+              </svg>
+            </span>
+            <span className="font-['Space_Grotesk'] tracking-wider">
+              {siteConfig.brand.name}
+            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -169,9 +222,8 @@ export default function Navbar() {
         <div
           ref={mobileMenuRef}
           id="mobile-menu"
-          className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${
-            isMobileMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
-          }`}
+          className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${isMobileMenuOpen ? 'max-h-60 opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+            }`}
           role="navigation"
           aria-label="Mobile navigation"
           aria-hidden={!isMobileMenuOpen}

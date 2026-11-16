@@ -1,10 +1,11 @@
-import heroImage from '../assets/hero.png'
+import project1Image from '../assets/project_1.png'
+import project2Image from '../assets/project_2.png'
 
 // Site configuration - All content easily changeable from here
 export const siteConfig = {
   // Brand
   brand: {
-    name: 'FlowARE',
+    name: 'shubhendu',
     tagline: 'Where design, technology, and a little bit of magic meet.',
   },
 
@@ -31,49 +32,45 @@ export const siteConfig = {
     },
   },
 
-  // Projects Section
+  // Projects Section - To add a new project, simply append an object to the items array below.
   projects: {
-    title: 'Selected Work',
-    subtitle: 'A collection of digital experiences crafted with care.',
+    badge: 'SELECTED WORK',
+    title: 'Featured Projects',
+    subtitle: 'A curated showcase of intelligent systems, modern web engineering, and interactive digital experiences.',
+    filterOptions: ['All', 'Development', 'ML Project', 'GenAI Project'],
     items: [
       {
-        id: 1,
-        title: 'Neural Interface',
-        category: 'Web Experience',
-        description: 'An immersive 3D visualization exploring the intersection of human cognition and machine learning.',
-        image: heroImage,
-        tags: ['Three.js', 'GSAP', 'React'],
-        link: '#',
+        id: 'label-lens',
+        title: 'LabelLens',
+        subtitle: 'AI-Powered Legal Metrology & Compliance Verification Platform',
+        category: 'GenAI & Full Stack',
+        types: ['Development', 'GenAI Project'],
+        year: '2025',
+        role: 'Full-Stack & AI Developer',
+        description: 'An AI-powered compliance platform that verifies packaging label details against Legal Metrology rules, detecting mandatory declarations such as MRP, Expiry Date, Net Quantity, and Manufacturer details.',
+        longDescription: 'LabelLens is an intelligent verification platform engineered to audit product packaging against Legal Metrology compliance standards. Utilizing Gemini OCR and multimodal intelligence, it inspects uploaded labels to instantly determine which mandatory declarations (such as MRP, Expiry Date, Batch Number, Net Quantity, and Manufacturing Information) are present or missing. Backed by the MERN stack with ImageKit cloud storage, LabelLens streamlines compliance verification for brands and regulatory reviewers.',
+        tags: ['MERN Stack', 'Gemini OCR', 'ImageKit', 'React', 'Node.js', 'MongoDB', 'Express'],
+        image: project1Image,
+        accentColor: '#BAFDDB',
+        codeUrl: 'https://github.com/shubhendu-the-artist/labellens',
+        liveUrl: 'https://labellensapp.onrender.com/',
         featured: true,
       },
       {
-        id: 2,
-        title: 'Quantum Dashboard',
-        category: 'Data Visualization',
-        description: 'Real-time quantum computing metrics dashboard with interactive particle simulations.',
-        image: heroImage,
-        tags: ['D3.js', 'WebGL', 'TypeScript'],
-        link: '#',
-        featured: false,
-      },
-      {
-        id: 3,
-        title: 'Flow State',
-        category: 'Creative Tool',
-        description: 'A generative art tool that transforms user input into flowing, organic visual compositions.',
-        image: heroImage,
-        tags: ['Canvas API', 'Web Workers', 'React'],
-        link: '#',
-        featured: false,
-      },
-      {
-        id: 4,
-        title: 'Echo Chamber',
-        category: 'Interactive Installation',
-        description: 'An audio-reactive installation that visualizes sound waves in real-time 3D space.',
-        image: heroImage,
-        tags: ['Web Audio API', 'Three.js', 'GSAP'],
-        link: '#',
+        id: 'mindly-predictor',
+        title: 'Mindly',
+        subtitle: 'ML-Based Mental Health Predictor & Wellness Companion',
+        category: 'Machine Learning',
+        types: ['Development', 'ML Project'],
+        year: '2025',
+        role: 'ML Engineer & Developer',
+        description: 'A machine learning-driven mental health predictor built with FastAPI to forecast emotional distress, assess cognitive burnout risk, and offer personalized guidance.',
+        longDescription: 'Mindly is an accessible mental health assessment and prediction tool powered by trained machine learning algorithms. Built with a high-performance FastAPI backend paired with clean, responsive HTML, CSS, and modern JavaScript, Mindly analyzes user inputs and psychological markers to predict stress and burnout risk, delivering actionable self-care insights and recommendations.',
+        tags: ['FastAPI', 'Machine Learning', 'Python', 'HTML5', 'CSS3', 'JavaScript'],
+        image: project2Image,
+        accentColor: '#ad91ff',
+        codeUrl: 'https://github.com/shubhendu-the-artist/mindly',
+        liveUrl: 'https://shubhendu-the-artist.github.io/mindly/',
         featured: true,
       },
     ],
@@ -83,7 +80,7 @@ export const siteConfig = {
   contact: {
     title: 'Have something good in mind?',
     subtitle: 'Whether it\'s a new project, a collaboration, or just a hello — my inbox is open.',
-    email: 'hello@floware.studio',
+    email: 'shubhendu.garai99.9@gmail.com',
     form: {
       fields: [
         { name: 'name', label: 'Name', type: 'text', placeholder: 'Your name', required: true },
@@ -94,19 +91,18 @@ export const siteConfig = {
       submitLabel: 'Send Message',
     },
     social: [
-      { name: 'Twitter', href: 'https://twitter.com', icon: 'twitter' },
-      { name: 'GitHub', href: 'https://github.com', icon: 'github' },
-      { name: 'LinkedIn', href: 'https://linkedin.com', icon: 'linkedin' },
-      { name: 'Email', href: 'mailto:hello@floware.studio', icon: 'mail' },
+      { name: 'Instagram', href: 'https://www.instagram.com/the_.subhendu._', icon: 'instagram' },
+      { name: 'GitHub', href: 'https://github.com/shubhendu-the-artist', icon: 'github' },
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/in/shubhendu-garai/', icon: 'linkedin' },
     ],
   },
 
   // Footer
   footer: {
-    copyright: '© 2026 FlowARE. Crafted with intention.',
+    copyright: '© 2026 Shubhendu\'s Portfolio. Crafted with intention.',
     links: [
-      { label: 'Privacy', href: '#' },
-      { label: 'Terms', href: '#' },
+      { label: 'Privacy', href: '#privacy' },
+      { label: 'Terms', href: '#terms' },
     ],
   },
 

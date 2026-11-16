@@ -1,2 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
+
+/* Fix browser autofill styling overriding dark mode inputs */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff !important;
+  -webkit-box-shadow: 0 0 0px 1000px #18181b inset !important;
+  box-shadow: 0 0 0px 1000px #18181b inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+@keyframes flowerBloom {
+  0% {
+    transform: rotate(0deg) scale(0.92);
+    opacity: 0.65;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.12);
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(186, 253, 219, 0.6));
+  }
+  100% {
+    transform: rotate(360deg) scale(0.92);
+    opacity: 0.65;
+  }
+}
+
+.animate-flower-bloom {
+  animation: flowerBloom 2.8s ease-in-out infinite;
+}

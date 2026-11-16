@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { siteConfig } from '../data/siteConfig';
 import Scene from './Scene';
 import { Canvas } from '@react-three/fiber';
+import { FlowerLoaderOverlay } from './FlowerLoader';
 
 
 export default function Hero() {
@@ -97,6 +98,7 @@ export default function Hero() {
     >
       {/* 3D Canvas Section */}
       <div className="absolute h-[80vh] md:h-[90vh] inset-0 z-0">
+        <FlowerLoaderOverlay />
         <Canvas
           camera={{ fov: 25, near: 0.1, far: 100, position: [0, 0, 21] }}
           dpr={[1, 2]}

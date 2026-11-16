@@ -1,9 +1,8 @@
-import { useRef, useEffect, useLayoutEffect, useState } from 'react'
+import { useRef, useEffect, useLayoutEffect } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
-import { Box3 } from 'three'
 
 gsap.registerPlugin(useGSAP)
 

@@ -26,7 +26,6 @@ function About() {
           start: '-30% 10%',
           end: '25% 15%',
           scrub: 1,
-          markers: true,
           toggleActions: 'play none none reverse'
         },
       }, "<")

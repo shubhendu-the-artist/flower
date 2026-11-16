@@ -4,24 +4,29 @@ import { Html, useProgress } from '@react-three/drei';
 export function FlowerIcon({ className = 'w-12 h-12' }) {
   return (
     <svg
-      className={`text-[#BAFDDB] animate-flower-bloom ${className}`}
-      viewBox="0 0 24 24"
+      className={`text-sky-400 drop-shadow-[0_0_12px_rgba(56,189,248,0.5)] animate-flower-bloom ${className}`}
+      viewBox="0 0 64 64"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.75"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <circle cx="12" cy="12" r="2.5" fill="currentColor" fillOpacity="0.5" />
-      <path d="M12 3a2.5 2.5 0 0 0-2.5 2.5c0 1.5 2.5 4 2.5 4s2.5-2.5 2.5-4A2.5 2.5 0 0 0 12 3z" />
-      <path d="M12 21a2.5 2.5 0 0 0 2.5-2.5c0-1.5-2.5-4-2.5-4s-2.5 2.5-2.5 4A2.5 2.5 0 0 0 12 21z" />
-      <path d="M3 12a2.5 2.5 0 0 0 2.5 2.5c1.5 0 4-2.5 4-2.5s-2.5-2.5-4-2.5A2.5 2.5 0 0 0 3 12z" />
-      <path d="M21 12a2.5 2.5 0 0 0-2.5-2.5c-1.5 0-4 2.5-4 2.5s2.5 2.5 4 2.5A2.5 2.5 0 0 0 21 12z" />
-      <path d="M5.64 5.64a2.5 2.5 0 0 0 0 3.54c1.06 1.06 4.24 1.41 4.24 1.41s-.35-3.18-1.41-4.24a2.5 2.5 0 0 0-3.54 0z" />
-      <path d="M18.36 18.36a2.5 2.5 0 0 0 0-3.54c-1.06-1.06-4.24-1.41-4.24-1.41s.35 3.18 1.41 4.24a2.5 2.5 0 0 0 3.54 0z" />
-      <path d="M5.64 18.36a2.5 2.5 0 0 0 3.54 0c1.06-1.06 1.41-4.24 1.41-4.24s-3.18.35-4.24 1.41a2.5 2.5 0 0 0 0 3.54z" />
-      <path d="M18.36 5.64a2.5 2.5 0 0 0-3.54 0c-1.06 1.06-1.41 4.24-1.41 4.24s3.18-.35 4.24-1.41a2.5 2.5 0 0 0 0-3.54z" />
+      <g transform="translate(32,32)">
+        {/* 8 Botanical Petals */}
+        <path d="M 0,-4 C -6,-16 -6,-24 0,-28 C 6,-24 6,-16 0,-4 Z" fill="currentColor" fillOpacity="0.25" strokeWidth="1.5" />
+        <path d="M 0,-4 C -6,-16 -6,-24 0,-28 C 6,-24 6,-16 0,-4 Z" fill="currentColor" fillOpacity="0.2" strokeWidth="1.5" transform="rotate(45)" />
+        <path d="M 0,-4 C -6,-16 -6,-24 0,-28 C 6,-24 6,-16 0,-4 Z" fill="currentColor" fillOpacity="0.25" strokeWidth="1.5" transform="rotate(90)" />
+        <path d="M 0,-4 C -6,-16 -6,-24 0,-28 C 6,-24 6,-16 0,-4 Z" fill="currentColor" fillOpacity="0.2" strokeWidth="1.5" transform="rotate(135)" />
+        <path d="M 0,-4 C -6,-16 -6,-24 0,-28 C 6,-24 6,-16 0,-4 Z" fill="currentColor" fillOpacity="0.25" strokeWidth="1.5" transform="rotate(180)" />
+        <path d="M 0,-4 C -6,-16 -6,-24 0,-28 C 6,-24 6,-16 0,-4 Z" fill="currentColor" fillOpacity="0.2" strokeWidth="1.5" transform="rotate(225)" />
+        <path d="M 0,-4 C -6,-16 -6,-24 0,-28 C 6,-24 6,-16 0,-4 Z" fill="currentColor" fillOpacity="0.25" strokeWidth="1.5" transform="rotate(270)" />
+        <path d="M 0,-4 C -6,-16 -6,-24 0,-28 C 6,-24 6,-16 0,-4 Z" fill="currentColor" fillOpacity="0.2" strokeWidth="1.5" transform="rotate(315)" />
+
+        {/* Center core */}
+        <circle cx="0" cy="0" r="6" fill="#090a0f" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="0" cy="0" r="3" fill="currentColor" fillOpacity="0.8" />
+      </g>
     </svg>
   );
 }
